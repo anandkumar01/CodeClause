@@ -1,0 +1,43 @@
+def addition(*args):
+    return sum(args)
+
+def subtraction(*args):
+    result = args[0]
+    for num in args[1:]:
+        result -= num
+    return result
+
+def multiplication(*args):
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+def division(*args):
+    if 0 in args[1:]:
+        return "Cannot divide by Zero"
+    result = args[0]
+    for num in args[1:]:
+        result /= num
+    return result
+
+def calculator():
+    print("Select operation:")
+    print("1. addition", "\n2. subtraction", "\n3. multiplication", "\n4. division")
+
+    choice = input("Enter choice: ")
+    digits = [float(num) for num in input("Enter digit separated by spaces: ").split()]
+
+    if choice == '1':
+        return addition(*digits)
+    elif choice == '2':
+        return subtraction(*digits)
+    elif choice == '3':
+        return multiplication(*digits)
+    elif choice == '4':
+        return division(*digits)
+    else:
+        return "Invalid"
+
+result=calculator()
+print("Result: ", result)
